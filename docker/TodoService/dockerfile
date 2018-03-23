@@ -1,0 +1,28 @@
+FROM microsoft/aspnetcore-build:2 as builder
+
+WORKDIR /src/Bus/
+COPY /src/Bus/Bus.csproj .
+RUN dotnet restore
+
+WORKDIR /src/TodoMessages/
+COPY /src/TodoMessages/TodoMessages.csproj .
+RUN dotnet restore
+
+WORKDIR /src/TodoService/
+COPY /src/TodoService/TodoService.csproj .
+RUN dotnet restore
+
+COPY /src/Bus/ /src/Bus/
+COPY /src/TodoMessages/ /src/TodoMessages/
+COPY /src/TodoService/ /src/TodoService/
+
+WORKDIR /src/TodoService/
+RUN dotnet publish -c Release -o /build 
+
+FROM microsoft/aspnetcore:2.0
+
+WORKDIR /app
+
+COPY --from=builder /build .
+
+ENTRYPOINT [ "dotnet", "TodoService.dll" ]

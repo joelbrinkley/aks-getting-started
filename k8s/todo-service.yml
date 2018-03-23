@@ -1,0 +1,26 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: todo-service-deployment
+spec:
+  selector:
+      matchLabels:
+          app: todo-app
+          component: todo-service
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        component: todo-service
+        app: todo-app
+        version: v1
+    spec:
+      imagePullSecrets:
+      - name: regcred
+      containers:
+      - name: todo-service
+        image: tstraubk8shackfest.azurecr.io/todo-service:v1
+        env:
+          - name: NATS_CONNECTION
+            value: nats://nats-service:6565
+

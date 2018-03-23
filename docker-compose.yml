@@ -1,0 +1,13 @@
+version: '3.3'
+services:
+  
+  todo-messaging: 
+    image: nats:linux
+    container_name: todo-messaging
+
+  todo-service:
+    image: todoapp/todo-service:v1
+    container_name: todo-service
+  todo-webapp:
+    image: todoapp/todo-webapp:v1
+    container_name: todo-webapp

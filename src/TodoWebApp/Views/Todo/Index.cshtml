@@ -1,0 +1,28 @@
+﻿@model TodoViewModel
+@{
+}
+
+
+<div>
+   <h2>@ViewData["Response"]</h2>
+</div>
+
+@using (Html.BeginForm("Create", "Todo", FormMethod.Post))
+{
+    <div class="editor-label">
+        @Html.LabelFor(x => Model.Name, new { @class = "form-label" })
+    </div>
+    <div class="editor-label">
+        @Html.TextBoxFor(x => Model.Name, new { @class = "form-control" })
+    </div>
+
+    <div class="editor-label">
+        @Html.LabelFor(x => Model.Description, new { @class = "form-label" })
+    </div>
+    <div class="editor-label">
+        @Html.TextBoxFor(x => Model.Description, new { @class = "form-control" })
+    </div>
+
+    <input type="submit" value="Add" class="btn btn-primary">
+
+}

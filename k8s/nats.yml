@@ -1,0 +1,46 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: nats
+  labels:
+    component: nats
+    app: todo-app
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        component: nats
+        app: todo-app
+        version: v1
+    spec:
+      containers:
+      - name: todo-messaging
+        image: nats:linux
+        ports:
+          - containerPort: 4222
+            name: client
+          - containerPort: 6222
+            name: cluster
+          - containerPort: 8222
+            name: monitor
+            
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: nats-service
+spec:
+  selector:
+    component: nats 
+  ports:
+  - name: client
+    port: 6565
+    targetPort: 4222
+  - name: cluster
+    port: 6566
+    targetPort: 6222
+  - name: monitor
+    port: 6567
+    targetPort: 8222
+  type: NodePort

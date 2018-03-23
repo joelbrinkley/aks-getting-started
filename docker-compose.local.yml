@@ -1,0 +1,16 @@
+version: '3.3'
+services:
+  todo-messaging: 
+    ports:
+      - "51102:4222"
+  todo-service:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - NATS_CONNECTION=nats://todo-messaging:4222
+    ports:
+      - "51100:80"
+  todo-webapp:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    ports:
+      - "51101:80"
