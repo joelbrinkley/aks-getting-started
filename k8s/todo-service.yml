@@ -15,11 +15,9 @@ spec:
         app: todo-app
         version: v1
     spec:
-      imagePullSecrets:
-      - name: regcred
       containers:
       - name: todo-service
-        image: tstraubk8shackfest.azurecr.io/todo-service:v1
+        image: joelvbrinkley/todo-service:v1
         env:
           - name: NATS_CONNECTION
             value: nats://nats-service:6565

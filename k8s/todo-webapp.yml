@@ -15,12 +15,9 @@ spec:
         app: todo-app
         version: v1
     spec:      
-      imagePullSecrets:
-        - name: regcred
       containers:
       - name: todo-webapp
-        image: tstraubk8shackfest.azurecr.io/todo-webapp:v1
-        imagePullPolicy: Always
+        image: joelvbrinkley/todo-webapp:v1
         env:
           - name: ASPNETCORE_ENVIRONMENT
             value: K8s
