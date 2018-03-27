@@ -7,8 +7,6 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - NATS_CONNECTION=nats://todo-messaging:4222
-    ports:
-      - "51100:80"
   todo-webapp:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development

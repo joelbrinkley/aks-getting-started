@@ -6,8 +6,7 @@ services:
     container_name: todo-messaging
 
   todo-service:
-    image: todoapp/todo-service:v1
-    container_name: todo-service
+    image: joelvbrinkley/todo-service:v1
   todo-webapp:
-    image: todoapp/todo-webapp:v1
+    image: joelvbrinkley/todo-webapp:v1
     container_name: todo-webapp

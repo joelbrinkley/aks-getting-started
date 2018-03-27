@@ -14,7 +14,7 @@ spec:
         component: todo-service
         app: todo-app
         version: v1
-    spec:
+    spec:      
       containers:
       - name: todo-service
         image: joelvbrinkley/todo-service:v1

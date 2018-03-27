@@ -26,7 +26,7 @@ namespace Bus
         {
             this.log.Information($"Starting subscription for command handler {typeof(TCommand).ToString()}");
 
-            var subscription = connection.SubscribeAsync(name);
+            var subscription = connection.SubscribeAsync(name, "${name}.Handle.Queue");
 
             subscription.MessageHandler += (sender, args) =>
             {
