@@ -8,6 +8,15 @@ variable "agent_count" {
     description = "The number of agents in the cluster"
 }
 
-variable "dns_prefix" {
-    
+variable "region" {
+    default = "centralus"
+    description = "Region to deploy resources"
 }
+
+variable "dns_prefix" {
+    description = "DNS prefix for the AKS cluster"
+}
+
+variable "client_id" {}
+
+variable "client_secret" {}
