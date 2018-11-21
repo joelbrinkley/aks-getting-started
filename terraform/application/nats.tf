@@ -54,6 +54,7 @@ resource "kubernetes_service" "nats" {
   metadata {
     name = "nats-service"
   }
+  
   spec {
     selector {
       app = "${kubernetes_deployment.nats.metadata.0.labels.app}"

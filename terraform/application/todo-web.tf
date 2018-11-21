@@ -1,6 +1,10 @@
 resource "kubernetes_deployment" "webapp" {
   metadata {
-    name = "todo-webapp-deployment"   
+    name = "todo-webapp-deployment"
+     labels {
+      app = "todo-webapp"
+      component = "todo-service"
+    }
   }
 
   spec {
@@ -47,7 +51,7 @@ resource "kubernetes_service" "webapp" {
   }
   spec {
     selector {
-      app = "${kubernetes_deployment.webapp.metadata.0.labels.app}"
+      component = "todo-webapp"
       version = "v1"
     }
     port {

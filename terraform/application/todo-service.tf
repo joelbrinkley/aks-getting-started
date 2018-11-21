@@ -1,6 +1,10 @@
 resource "kubernetes_deployment" "todo_service" {
   metadata {
     name = "todo-service-deployment"
+    labels {
+      app = "todo-app"
+      component = "todo-service"
+    }
   }
 
   spec {
@@ -36,4 +40,3 @@ resource "kubernetes_deployment" "todo_service" {
     }
   }
 }
-
