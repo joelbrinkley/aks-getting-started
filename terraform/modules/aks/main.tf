@@ -9,13 +9,9 @@ data "azurerm_subscription" "primary" {}
     source              = "../service_principal"
     name                = "tfautomatedspn"
     expiration          = "2020-01-01T00:00:00Z"
+    role                = "Contributor"
 }
- */
-/* resource "azurerm_role_assignment" "test" {
-  scope                = "${data.azurerm_subscription.primary.id}"
-  role_definition_name = "Reader"
-  principal_id         = "${module.service_principal.aks_spn.id}"
-} */
+*/
 
 resource "azurerm_kubernetes_cluster" "aks" {
   name                = "${var.cluster_name}"

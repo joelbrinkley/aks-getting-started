@@ -23,3 +23,8 @@ resource "azurerm_azuread_service_principal_password" "main" {
   value                = "${local.spn_password}"
   end_date             = "${var.expiration}"
 }
+
+resource "azurerm_role_assignment" "test" {
+  scope                = "${data.azurerm_subscription.primary.id}"
+  role_definition_name = "${var.role}"
+  principal_id         = "${azurerm_azuread_service_principal.main.id}"
