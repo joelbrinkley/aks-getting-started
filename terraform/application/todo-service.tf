@@ -8,7 +8,7 @@ resource "kubernetes_deployment" "todo_service" {
   }
 
   spec {
-    replicas = 1
+    replicas = 3
 
     selector {
       match_labels {
