@@ -36,6 +36,11 @@ resource "kubernetes_deployment" "webapp" {
              value = "K8s"
           }
 
+          env {
+             name = "NatsConnection"
+             value = "nats://natscluster-nats-client:4222"
+          }
+
           port {
               container_port = "80"
           }
