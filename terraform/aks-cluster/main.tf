@@ -8,7 +8,7 @@ provider "azurerm" {
 module "aks" "aks" {
     source              = "../modules/aks"
     cluster_name        = "jb-aks-cluster"
-    agent_count         = 1
+    agent_count         = 3
     dns_prefix          = "jbaks"
     client_id           = "${var.client_id}"
     client_secret       = "${var.client_secret}"

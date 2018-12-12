@@ -17,6 +17,10 @@ variable "dns_prefix" {
     description = "DNS prefix for the AKS cluster"
 }
 
-variable "client_id" {}
+variable "client_id" {
+    description = "client id for cluster"
+}
 
-variable "client_secret" {}
+variable "client_secret" {
+    description = "client secret for cluster"
+}

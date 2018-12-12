@@ -73,7 +73,7 @@ namespace Bus
 
         public void Send<TCommand>(string name, TCommand command)
         {
-            using (var connection = new ConnectionFactory().CreateConnection(natsConnectionString))
+            using(var connection = new ConnectionFactory().CreateConnection(natsConnectionString))
             {
                 try
                 {
@@ -94,7 +94,9 @@ namespace Bus
 
         public TResponse RequestReply<TCommand, TResponse>(string name, TCommand command)
         {
-            using (var connection = new ConnectionFactory().CreateConnection(natsConnectionString))
+            this.log.Information($"usings nats:connection {natsConnectionString}");
+
+            using(var connection = new ConnectionFactory().CreateConnection(natsConnectionString))
             {
                 try
                 {
@@ -112,8 +114,10 @@ namespace Bus
                 {
                     this.log.Error($"Failed to publish command to {name}");
                 }
-
-                connection.Close();
+                finally
+                {
+                    connection.Close();
+                }
                 return default(TResponse);
             }
         }
