@@ -22,13 +22,13 @@ resource "kubernetes_deployment" "webapp" {
        labels {
         component = "todo-webapp"
         app = "todo-app"
-        version = "v1"
+        version = "v2"
         }
       }
 
       spec {
         container {
-          image = "joelvbrinkley/todo-webapp:v1"
+          image = "joelvbrinkley/todo-webapp:v2"
           name  = "todo-webapp"
 
           env {
@@ -52,7 +52,7 @@ resource "kubernetes_service" "webapp" {
   spec {
     selector {
       component = "todo-webapp"
-      version = "v1"
+      version = "v2"
     }
     port {
       name = "http"

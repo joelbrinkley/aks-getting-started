@@ -4,7 +4,7 @@ services:
     image: nats:linux
     container_name: todo-messaging
   todo-service:
-    image: joelvbrinkley/todo-service:v1
+    image: joelvbrinkley/todo-service:v2
   todo-webapp:
-    image: joelvbrinkley/todo-webapp:v1
+    image: joelvbrinkley/todo-webapp:v2
     container_name: todo-webapp

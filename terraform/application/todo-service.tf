@@ -22,18 +22,18 @@ resource "kubernetes_deployment" "todo_service" {
        labels {
         component = "todo-service"
         app = "todo-app"
-        version = "v1"
+        version = "v2"
         }
       }
 
       spec {
         container {
-          image = "joelvbrinkley/todo-service:v1"
+          image = "joelvbrinkley/todo-service:v2"
           name  = "todo-service"
 
           env {
              name = "NATS_CONNECTION"
-             value = "nats://nats-service:6565"
+             value = "nats://natscluster-nats-client:4222"
           }
         }
       }
