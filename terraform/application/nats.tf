@@ -57,7 +57,7 @@ resource "kubernetes_service" "nats" {
   
   spec {
     selector {
-      app = "${kubernetes_deployment.nats.metadata.0.labels.app}"
+      component = "${kubernetes_deployment.nats.metadata.0.labels.component}"
     }
     port {
       name = "client"
