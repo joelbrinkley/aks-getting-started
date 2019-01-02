@@ -1,5 +1,6 @@
+
 resource "azurerm_resource_group" "aks" {
-  name     = "jb-terraform-aks"
+  name     = "${local.cluster_rg_name}"
   location = "${var.region}"
 }
 
@@ -22,5 +23,5 @@ resource "azurerm_kubernetes_cluster" "aks" {
     client_secret = "${var.client_secret}"
   }
 
-  //tags = "${local.tags}"
+  tags = "${local.tags}"
 }  
