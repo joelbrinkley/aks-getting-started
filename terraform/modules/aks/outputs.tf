@@ -1,4 +1,13 @@
+output "aks_resource_group_name" {
+    value = "${azurerm_resource_group.aks.name}"
+}
+
+output "aks_cluster_name" {
+    value = "${azurerm_kubernetes_cluster.aks.name}"
+}
+
 output "client_key" {
+    sensitive = true
     value = "${azurerm_kubernetes_cluster.aks.kube_config.0.client_key}"
 }
 
@@ -15,6 +24,7 @@ output "cluster_username" {
 }
 
 output "cluster_password" {
+    sensitive = true
     value = "${azurerm_kubernetes_cluster.aks.kube_config.0.password}"
 }
 

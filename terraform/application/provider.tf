@@ -1,3 +1,9 @@
+terraform {
+    backend "azurerm" {    
+        key = "app.terraform.tfstate"
+    }
+}
+
 data "azurerm_kubernetes_cluster" "aks" {
     name                = "${var.aks_cluster_name}"
     resource_group_name = "${var.aks_cluster_resource_group}"
