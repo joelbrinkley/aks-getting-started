@@ -1,5 +1,2 @@
-variable "client_certificate"{}
-variable "client_key" {}
-variable "cluster_ca_certificate" {}
-variable "host"{}
-variable "insecure"{}
+variable "aks_cluster_name" {}
+variable "aks_cluster_resource_group" {}
