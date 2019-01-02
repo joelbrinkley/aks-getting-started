@@ -1,2 +1,3 @@
-variable "aks_cluster_name" {}
-variable "aks_cluster_resource_group" {}
+variable "storage_account_name" {}
+variable "container_name" {}
+variable "access_key" {}
