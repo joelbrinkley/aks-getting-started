@@ -1,5 +1,3 @@
-variable "client_certificate"{}
-variable "client_key" {}
-variable "cluster_ca_certificate" {}
-variable "host"{}
-variable "insecure"{}
+variable "storage_account_name"{}
+variable "container_name" {}
+variable "access_key" {}

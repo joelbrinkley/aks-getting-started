@@ -28,7 +28,6 @@ provider "helm" {
         client_certificate     = "${base64decode(data.terraform_remote_state.aks.client_certificate)}"
         client_key             = "${base64decode(data.terraform_remote_state.aks.client_key)}"
         cluster_ca_certificate = "${base64decode(data.terraform_remote_state.aks.cluster_ca_certificate)}"
-        load_config_file  = false
     }
 }
 
